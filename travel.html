@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adrian Ivancak Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Adrian Ivancak</h1>
+    <p>Photographer, filmmaker & traveler</p>
+    <p class="dynamic-text">Look through some of my best car photography work</p>
+  </div>
+  <div class="button-container">
+    <button id="backButton" class="back-btn">Home Page</button>
+    <button id="contactButton" class="contact-btn">Contact Me</button>
+  </div>
+  <div class="content">
+    <!-- Gallery Section -->
+    <div class="gallery-container">
+        <div class="gallery">
+          <img src="./pictures/IMG_7206.jpg" alt="Image 1" class="gallery-image" onclick="openModal(this)">
+          <img src="./pictures/PICT0757.JPG" alt="Image 2" class="gallery-image" onclick="openModal(this)">
+          <img src="./pictures/PICT0399.JPG" alt="Image 3" class="gallery-image" onclick="openModal(this)">
+          <img src="./pictures/PICT0891.JPG" alt="Image 4" class="gallery-image" onclick="openModal(this)">
+          <!-- Add more images here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal for viewing image -->
+    <div id="myModal" class="modal" onclick="closeModal()">
+        <img id="modalImage" class="modal-content">
+      </div>
+
+    
+  </div>
+
+  <script src="script.js"></script>
+  <script src="gallery.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

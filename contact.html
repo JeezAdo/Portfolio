@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Adrian Ivancak</h1>
+    <p>Photographer, filmmaker & traveler</p>
+    <p>Feel free to reach out</p>
+  </div>
+
+  <div class="button-container">
+    <button id="backButton" class="back-btn">Home Page</button>
+  </div>
+
+  <!-- Contact Form -->
+  <div class="contact-form-container">
+    <form action="send_message.php" method="POST" class="contact-form">
+      <label for="full_name">Full Name:</label>
+      <input type="text" name="full_name" id="full_name" required>
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required>
+
+      <label for="subject">Subject:</label>
+      <input type="text" name="subject" id="subject" required>
+
+      <label for="message">Message:</label>
+      <textarea name="message" id="message" required></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <!-- Success/Error Message will appear here -->
+    <div class="form-response">
+      
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

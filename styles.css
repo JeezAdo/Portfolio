@@ -1,0 +1,692 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif, sans-serif;
+  background-image: url('./pictures/back-patt.jpg');
+  background-color: #f9f7f3;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.5s ease, background-color 0.5s ease;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Change from 'center' to 'flex-start' */
+  min-height: 100vh;
+  padding-top: 130px;
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0; /* Start with the opacity at 0 */
+  transition: opacity 1s ease-in-out; /* Smooth fade-in/fade-out for background */
+  z-index: -1; /* Ensure it's behind the content */
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.header h1 {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.header p {
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.dynamic-text {
+  margin-top: 10px;
+  color: #555;
+  transition: color 1s ease;
+}
+
+.contact-btn {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.contact-btn:hover {
+  background-color: #555;
+}
+
+.back-btn {
+  padding: 10px 20px;
+  background-color: #908585;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.back-btn :hover {
+  background-color: #555;
+}
+
+.about-btn {
+  padding: 10px 20px;
+  background-color: #908585;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.about-btn :hover {
+  background-color: #555;
+}
+
+.button-container {
+  display: flex;
+  gap: 20px; /* Adds space between the buttons */
+  justify-content: center; /* Centers the buttons horizontally */
+}
+
+.contact-btn, .back-btn, .about-btn {
+  padding: 15px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.about-me {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+}
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-pic {
+  width: 300px;
+  height: 300px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 3px solid #ccc;
+  transition: transform 0.3s ease;
+}
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+
+.thumbnail-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.thumbnail:hover {
+  transform: scale(1.1);
+  border-color: #555;
+}
+
+.about-right {
+  flex: 2; /* Keeps it proportional */
+  max-width: 600px; /* Restricts the width */
+  padding-right: 20px; /* Adds padding on the right */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.about-right h2 {
+  font-size: 2rem;
+  color: #333;
+}
+
+.about-right p,
+.about-right ul {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.about-right ul {
+  padding-left: 15px;
+}
+
+.about-right ul li {
+  margin-bottom: 10px;
+}
+
+/* Content Section */
+.content {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.box {
+  width: 450px;
+  height: 300px;
+  background-color: transparent; /* Set background as transparent for the main box */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  text-transform: capitalize;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  opacity: 0.75; /* Opacity for the background only */
+  border-radius: 16px;
+  z-index: 0; /* Ensure it stays behind the content */
+}
+
+.box:hover {
+  background-color: rgba(204, 204, 204, 0.75); /* Apply opacity only to the background */
+}
+
+.box h2, .box p {
+  position: relative; /* Ensure content stays above the background */
+  z-index: 1; /* Bring content above the pseudo-element */
+}
+
+.box.photography,
+.box.projects {
+  position: relative;
+}
+
+.box h2 {
+  pointer-events: none;
+}
+
+/* Hide Main Photography Box on Hover */
+.box.photography:hover h2,
+.box.projects:hover h2 {
+  display: none;
+}
+
+.box.photography:hover .options {
+  display: flex;
+}
+
+/* Options Styling */
+.options {
+  display: none;
+  flex-direction: row;
+  gap: 0px;
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.option {
+  flex: 1;
+  text-align: center;
+  background-color: #ddd;
+  /*border: 1px solid #ccc; */
+  opacity: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  position: relative; /* To position child elements inside the box */
+}
+
+.option:hover {
+  background-color: transparent;
+  opacity: 100%;
+  transform: scale(1.15);
+}
+
+/* Style the anchor tag to fill the entire .option box */
+.option a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Inherit text color */
+}
+
+/* Add hover effect for text color */
+.option a p {
+  font-size: 1rem; /* Keeps text consistent */
+  color: #333;
+  transition: color 0.3s ease; /* Smooth transition for text color on hover */
+}
+
+.option a:hover p {
+  color: #111; /* Slightly darker text on hover */
+}
+
+.button-container {
+  text-align: center;
+  margin: 10px;
+}
+
+.gallery-container {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: transparent; /* Optional: adds a background color for visibility */
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Four images per row */
+  gap: 10px;
+  width: 100%;
+  max-width: 1200px;
+  background-color: transparent; /* Optional: background color for the gallery */
+}
+
+.gallery-image {
+  width: 100%; /* Ensures the image fills the container */
+  height: 250px; /* Fixed height to make the image square-like */
+  object-fit: cover; /* Ensures the image maintains aspect ratio and covers the area */
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: #ddd; /* Temporary background color for images to show if not loaded */
+}
+
+.gallery-image:hover {
+  transform: scale(1.03); /* Zoom effect on hover */
+}
+
+/* Projects Section */
+.projects-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.project {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+  margin: 20px 0;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.project-left {
+  flex: 1;
+  position: relative;
+}
+
+.project-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.project-right {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 300px; /* Adjust height as necessary */
+  position: relative;
+}
+
+.project-title {
+  font-size: 24px;
+  margin: 0;
+  color: #333;
+}
+
+.project-description {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #555;
+}
+
+.project-small-images {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.small-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
+.project-small-images img:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 80%;
+  max-height: 80%;
+  margin: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.modal img {
+  width: 100%;
+  height: auto;
+}
+
+.contact-form-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f9f7f3;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 1rem;
+}
+
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-form button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive Design Adjustments */
+/* General Mobile Layout */
+/* Responsive Design Adjustments */
+/* General Mobile Layout */
+@media (max-width: 768px) {
+  body {
+    padding-top: 20px;
+    justify-content: flex-start;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Matches the light background */
+  }
+
+  .desktop-text {
+    display: none;
+  }
+  
+  .mobile-text {
+    display: inline;
+  }
+
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-size: 2rem; /* Adjust font size */
+    font-weight: bold;
+  }
+
+  .header p {
+    font-size: 1rem;
+    color: #555; /* Slightly muted text for subtitles */
+  }
+
+  .dynamic-text {
+    margin-top: 10px;
+    font-size: 0.9rem;
+  }
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; /* Center the buttons on mobile */
+    gap: 20px; /* Adds space between the buttons */
+    margin-bottom: 20px;
+  }
+
+  .contact-btn {
+    padding: 10px 20px;
+    background-color: #333; /* Darker shade for Contact button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-btn:hover {
+    background-color: #555; /* Darker on hover */
+  }
+  
+  /* Home Button */
+  .back-btn {
+    padding: 10px 20px;
+    background-color: #908585; /* Green shade for Home button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .back-btn:hover {
+    background-color: #555; /* Darker green on hover */
+  }
+
+  /* Box Grid Layout */
+  .content {
+    display: grid;
+    grid-template-columns: 1fr; /* Stack boxes on mobile */
+    gap: 10px; /* Small gap between boxes */
+    width: 90%; /* Center content */
+    margin: auto;
+  }
+
+  .box {
+    width: 100%; /* Full width of the grid */
+    height: 200px; /* Adjust height for mobile */
+    text-align: center;
+    background-color: #d3d3d3; /* Matches the grey background */
+    color: #000; /* Dark text color */
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 8px; /* Smooth corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .box.photography:hover h2,
+  .box.projects:hover h2 {
+    display: none; /* Keep text visible on hover */
+  }
+
+  .box:hover {
+    background-color: rgba(204, 204, 204, 0.75); /* Apply opacity only to the background */
+  }
+
+  .box h2, .box p {
+    opacity: 1; /* Ensure text stays visible */
+  }
+
+  
+  /* Gallery Layout: 2 columns with square images */
+  .gallery-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: transparent; /* Optional: adds a background color for visibility */
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 10px;
+    width: 100%;
+    max-width: 600px; /* Make gallery smaller on mobile */
+    background-color: transparent; /* Optional: background color for the gallery */
+  }
+
+  .gallery-image {
+    width: 100%; /* Ensures the image fills the container */
+    height: 200px; /* Fixed height for the images */
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: #ddd; /* Temporary background color for images to show if not loaded */
+  }
+  
+  /* Add hover effect to the gallery images */
+  .gallery-image:hover {
+    transform: scale(1.1); /* Zoom effect on hover */
+  }
+
+  .box .options {
+    display: flex !important; /* Ensure options are shown on mobile devices */
+    flex-direction: column; /* Stack options vertically */
+    gap: 10px;
+    width: 100%; /* Full width */
+    justify-content: center;
+  }
+
+  .option {
+    background-color: #ddd;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .option:hover {
+    background-color: transparent;
+    opacity: 100%;
+    transform: scale(1.15);
+  }
+
+  /* Hide hover effects */
+  .box:hover .options {
+    display: flex; /* Keep options visible */
+  }
+
+  /* Ensure text in options is styled */
+  .option a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .option a p {
+    font-size: 1rem;
+    color: #333;
+    transition: color 0.3s ease;
+  }
+
+  .option a:hover p {
+    color: #111;
+  }
+  .box h2 {
+    display: none !important; /* Force h2 to be hidden */
+  }
+
+  /* Prevent hover from showing h2 */
+  .box:hover h2 {
+    display: none !important; /* Ensure h2 stays hidden even when hovering */
+  }
+}
