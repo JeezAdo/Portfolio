@@ -502,11 +502,46 @@ body::before {
   background-color: #45a049;
 }
 
+.mobile-content {
+  display: none;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-top: 30px;
+  justify-content: center;
+  /* Makes the container horizontally scrollable */
+  gap: 20px;
+  /* Space between the boxes */
+  padding: 10px;
+  scroll-behavior: auto;
+
+}
+
 /* Responsive Design Adjustments */
 /* General Mobile Layout */
 /* Responsive Design Adjustments */
 /* General Mobile Layout */
 @media (max-width: 768px) {
+
+  /* Box Grid Layout */
+  .content {
+    display: flex;
+    grid-template-columns: 1fr;
+    /* Stack boxes on mobile */
+    gap: 10px;
+    /* Small gap between boxes */
+    width: 90%;
+    /* Center content */
+    margin: auto;
+  }
+
+  .screen-content {
+    display: none;
+  }
+
+  .mobile-content {
+    display: block;
+  }
+
   body {
     padding-top: 20px;
     justify-content: flex-start;
@@ -591,33 +626,22 @@ body::before {
     /* Darker green on hover */
   }
 
-  /* Box Grid Layout */
-  .content {
-    display: grid;
-    grid-template-columns: 1fr;
-    /* Stack boxes on mobile */
-    gap: 10px;
-    /* Small gap between boxes */
-    width: 90%;
-    /* Center content */
-    margin: auto;
-  }
-
   .box {
     width: 100%;
     /* Full width of the grid */
-    height: 200px;
+    height: 100rem;
     /* Adjust height for mobile */
     text-align: center;
-    background-color: #d3d3d3;
-    /* Matches the grey background */
-    color: #000;
+    background-color: transparent;
+    color: transparent;
     /* Dark text color */
     font-size: 1.1rem;
     font-weight: bold;
     border-radius: 8px;
     /* Smooth corners */
     display: flex;
+    flex-direction: column;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
@@ -629,8 +653,14 @@ body::before {
     /* Keep text visible on hover */
   }
 
+  .box::before {
+    left: auto;
+    width: 90%;
+    background-color: transparent;
+  }
+
   .box:hover {
-    background-color: rgba(204, 204, 204, 0.75);
+    background-color: transparent;
     /* Apply opacity only to the background */
   }
 
@@ -681,30 +711,22 @@ body::before {
     /* Zoom effect on hover */
   }
 
-  .box .options {
-    display: flex !important;
-    /* Ensure options are shown on mobile devices */
-    flex-direction: column;
-    /* Stack options vertically */
-    gap: 10px;
-    width: 100%;
-    /* Full width */
-    justify-content: center;
-  }
-
   .option {
-    background-color: #ddd;
-    text-align: center;
+    width: 80%;
+    opacity: 100%;
     padding: 10px;
     border-radius: 8px;
-    cursor: pointer;
     transition: background-color 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    /* Optional: Centers the image within the box */
+    background-repeat: no-repeat;/
   }
 
   .option:hover {
     background-color: transparent;
     opacity: 100%;
-    transform: scale(1.15);
+    transform: none;
   }
 
   /* Hide hover effects */
@@ -720,8 +742,14 @@ body::before {
   }
 
   .option a p {
-    font-size: 1rem;
+    font-size: 2.5rem;
     color: #333;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    padding-top: 0.3rem;
+    padding-bottom: 0.3rem;
+    border-radius: 8px;
+    text-transform: uppercase;
     transition: color 0.3s ease;
   }
 
