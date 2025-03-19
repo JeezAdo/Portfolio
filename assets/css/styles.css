@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif, sans-serif;
-  background-image: url('./pictures/back-patt.jpg');
+  background-image: url('assets/pictures/back-patt.jpg');
   background-color: #f9f7f3;
   background-size: cover;
   background-position: center;
@@ -16,7 +16,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Change from 'center' to 'flex-start' */
+  justify-content: flex-start;
+  /* Change from 'center' to 'flex-start' */
   min-height: 100vh;
   padding-top: 130px;
 }
@@ -30,9 +31,12 @@ body::before {
   height: 100%;
   background-size: cover;
   background-position: center;
-  opacity: 0; /* Start with the opacity at 0 */
-  transition: opacity 1s ease-in-out; /* Smooth fade-in/fade-out for background */
-  z-index: -1; /* Ensure it's behind the content */
+  opacity: 0;
+  /* Start with the opacity at 0 */
+  transition: opacity 1s ease-in-out;
+  /* Smooth fade-in/fade-out for background */
+  z-index: -1;
+  /* Ensure it's behind the content */
 }
 
 /* Header Section */
@@ -103,11 +107,15 @@ body::before {
 
 .button-container {
   display: flex;
-  gap: 20px; /* Adds space between the buttons */
-  justify-content: center; /* Centers the buttons horizontally */
+  gap: 20px;
+  /* Adds space between the buttons */
+  justify-content: center;
+  /* Centers the buttons horizontally */
 }
 
-.contact-btn, .back-btn, .about-btn {
+.contact-btn,
+.back-btn,
+.about-btn {
   padding: 15px 25px;
   font-size: 1rem;
   cursor: pointer;
@@ -140,6 +148,7 @@ body::before {
   border: 3px solid #ccc;
   transition: transform 0.3s ease;
 }
+
 .profile-pic:hover {
   transform: scale(1.05);
 }
@@ -167,9 +176,12 @@ body::before {
 }
 
 .about-right {
-  flex: 2; /* Keeps it proportional */
-  max-width: 600px; /* Restricts the width */
-  padding-right: 20px; /* Adds padding on the right */
+  flex: 2;
+  /* Keeps it proportional */
+  max-width: 600px;
+  /* Restricts the width */
+  padding-right: 20px;
+  /* Adds padding on the right */
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -206,7 +218,8 @@ body::before {
 .box {
   width: 450px;
   height: 300px;
-  background-color: transparent; /* Set background as transparent for the main box */
+  background-color: transparent;
+  /* Set background as transparent for the main box */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -229,18 +242,24 @@ body::before {
   width: 100%;
   height: 100%;
   background-color: #ccc;
-  opacity: 0.75; /* Opacity for the background only */
+  opacity: 0.75;
+  /* Opacity for the background only */
   border-radius: 16px;
-  z-index: 0; /* Ensure it stays behind the content */
+  z-index: 0;
+  /* Ensure it stays behind the content */
 }
 
 .box:hover {
-  background-color: rgba(204, 204, 204, 0.75); /* Apply opacity only to the background */
+  background-color: rgba(204, 204, 204, 0.75);
+  /* Apply opacity only to the background */
 }
 
-.box h2, .box p {
-  position: relative; /* Ensure content stays above the background */
-  z-index: 1; /* Bring content above the pseudo-element */
+.box h2,
+.box p {
+  position: relative;
+  /* Ensure content stays above the background */
+  z-index: 1;
+  /* Bring content above the pseudo-element */
 }
 
 .box.photography,
@@ -284,7 +303,8 @@ body::before {
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  position: relative; /* To position child elements inside the box */
+  position: relative;
+  /* To position child elements inside the box */
 }
 
 .option:hover {
@@ -300,19 +320,24 @@ body::before {
   justify-content: center;
   width: 100%;
   height: 100%;
-  text-decoration: none; /* Removes underline */
-  color: inherit; /* Inherit text color */
+  text-decoration: none;
+  /* Removes underline */
+  color: inherit;
+  /* Inherit text color */
 }
 
 /* Add hover effect for text color */
 .option a p {
-  font-size: 1rem; /* Keeps text consistent */
+  font-size: 1rem;
+  /* Keeps text consistent */
   color: #333;
-  transition: color 0.3s ease; /* Smooth transition for text color on hover */
+  transition: color 0.3s ease;
+  /* Smooth transition for text color on hover */
 }
 
 .option a:hover p {
-  color: #111; /* Slightly darker text on hover */
+  color: #111;
+  /* Slightly darker text on hover */
 }
 
 .button-container {
@@ -324,30 +349,38 @@ body::before {
   display: flex;
   justify-content: center;
   padding: 10px;
-  background-color: transparent; /* Optional: adds a background color for visibility */
+  background-color: transparent;
+  /* Optional: adds a background color for visibility */
 }
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Four images per row */
+  grid-template-columns: repeat(3, 1fr);
+  /* Four images per row */
   gap: 10px;
   width: 100%;
   max-width: 1200px;
-  background-color: transparent; /* Optional: background color for the gallery */
+  background-color: transparent;
+  /* Optional: background color for the gallery */
 }
 
 .gallery-image {
-  width: 100%; /* Ensures the image fills the container */
-  height: 250px; /* Fixed height to make the image square-like */
-  object-fit: cover; /* Ensures the image maintains aspect ratio and covers the area */
+  width: 100%;
+  /* Ensures the image fills the container */
+  height: 250px;
+  /* Fixed height to make the image square-like */
+  object-fit: cover;
+  /* Ensures the image maintains aspect ratio and covers the area */
   transition: transform 0.3s ease;
   cursor: pointer;
   border-radius: 8px;
-  background-color: #ddd; /* Temporary background color for images to show if not loaded */
+  background-color: #ddd;
+  /* Temporary background color for images to show if not loaded */
 }
 
 .gallery-image:hover {
-  transform: scale(1.03); /* Zoom effect on hover */
+  transform: scale(1.03);
+  /* Zoom effect on hover */
 }
 
 /* Projects Section */
@@ -387,7 +420,8 @@ body::before {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 300px; /* Adjust height as necessary */
+  height: 300px;
+  /* Adjust height as necessary */
   position: relative;
 }
 
@@ -415,7 +449,7 @@ body::before {
   object-fit: cover;
   border-radius: 5px;
   cursor: pointer;
-  
+
 }
 
 .project-small-images img:hover {
@@ -432,7 +466,8 @@ body::before {
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Semi-transparent background */
   justify-content: center;
   align-items: center;
 }
@@ -466,7 +501,8 @@ body::before {
   font-size: 1rem;
 }
 
-.contact-form input, .contact-form textarea {
+.contact-form input,
+.contact-form textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 20px;
@@ -497,13 +533,14 @@ body::before {
     padding-top: 20px;
     justify-content: flex-start;
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9; /* Matches the light background */
+    background-color: #f9f9f9;
+    /* Matches the light background */
   }
 
   .desktop-text {
     display: none;
   }
-  
+
   .mobile-text {
     display: inline;
   }
@@ -514,13 +551,15 @@ body::before {
   }
 
   .header h1 {
-    font-size: 2rem; /* Adjust font size */
+    font-size: 2rem;
+    /* Adjust font size */
     font-weight: bold;
   }
 
   .header p {
     font-size: 1rem;
-    color: #555; /* Slightly muted text for subtitles */
+    color: #555;
+    /* Slightly muted text for subtitles */
   }
 
   .dynamic-text {
@@ -532,14 +571,17 @@ body::before {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center; /* Center the buttons on mobile */
-    gap: 20px; /* Adds space between the buttons */
+    justify-content: center;
+    /* Center the buttons on mobile */
+    gap: 20px;
+    /* Adds space between the buttons */
     margin-bottom: 20px;
   }
 
   .contact-btn {
     padding: 10px 20px;
-    background-color: #333; /* Darker shade for Contact button */
+    background-color: #333;
+    /* Darker shade for Contact button */
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -547,15 +589,17 @@ body::before {
     font-size: 1rem;
     transition: background-color 0.3s ease;
   }
-  
+
   .contact-btn:hover {
-    background-color: #555; /* Darker on hover */
+    background-color: #555;
+    /* Darker on hover */
   }
-  
+
   /* Home Button */
   .back-btn {
     padding: 10px 20px;
-    background-color: #908585; /* Green shade for Home button */
+    background-color: #908585;
+    /* Green shade for Home button */
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -563,29 +607,38 @@ body::before {
     font-size: 1rem;
     transition: background-color 0.3s ease;
   }
-  
+
   .back-btn:hover {
-    background-color: #555; /* Darker green on hover */
+    background-color: #555;
+    /* Darker green on hover */
   }
 
   /* Box Grid Layout */
   .content {
     display: grid;
-    grid-template-columns: 1fr; /* Stack boxes on mobile */
-    gap: 10px; /* Small gap between boxes */
-    width: 90%; /* Center content */
+    grid-template-columns: 1fr;
+    /* Stack boxes on mobile */
+    gap: 10px;
+    /* Small gap between boxes */
+    width: 90%;
+    /* Center content */
     margin: auto;
   }
 
   .box {
-    width: 100%; /* Full width of the grid */
-    height: 200px; /* Adjust height for mobile */
+    width: 100%;
+    /* Full width of the grid */
+    height: 200px;
+    /* Adjust height for mobile */
     text-align: center;
-    background-color: #d3d3d3; /* Matches the grey background */
-    color: #000; /* Dark text color */
+    background-color: #d3d3d3;
+    /* Matches the grey background */
+    color: #000;
+    /* Dark text color */
     font-size: 1.1rem;
     font-weight: bold;
-    border-radius: 8px; /* Smooth corners */
+    border-radius: 8px;
+    /* Smooth corners */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -594,55 +647,70 @@ body::before {
 
   .box.photography:hover h2,
   .box.projects:hover h2 {
-    display: none; /* Keep text visible on hover */
+    display: none;
+    /* Keep text visible on hover */
   }
 
   .box:hover {
-    background-color: rgba(204, 204, 204, 0.75); /* Apply opacity only to the background */
+    background-color: rgba(204, 204, 204, 0.75);
+    /* Apply opacity only to the background */
   }
 
-  .box h2, .box p {
-    opacity: 1; /* Ensure text stays visible */
+  .box h2,
+  .box p {
+    opacity: 1;
+    /* Ensure text stays visible */
   }
 
-  
+
   /* Gallery Layout: 2 columns with square images */
   .gallery-container {
     display: flex;
     justify-content: center;
     padding: 10px;
-    background-color: transparent; /* Optional: adds a background color for visibility */
+    background-color: transparent;
+    /* Optional: adds a background color for visibility */
   }
 
   .gallery {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-columns: repeat(2, 1fr);
+    /* Two columns */
     gap: 10px;
     width: 100%;
-    max-width: 600px; /* Make gallery smaller on mobile */
-    background-color: transparent; /* Optional: background color for the gallery */
+    max-width: 600px;
+    /* Make gallery smaller on mobile */
+    background-color: transparent;
+    /* Optional: background color for the gallery */
   }
 
   .gallery-image {
-    width: 100%; /* Ensures the image fills the container */
-    height: 200px; /* Fixed height for the images */
+    width: 100%;
+    /* Ensures the image fills the container */
+    height: 200px;
+    /* Fixed height for the images */
     object-fit: cover;
     transition: transform 0.3s ease;
     cursor: pointer;
     border-radius: 8px;
-    background-color: #ddd; /* Temporary background color for images to show if not loaded */
+    background-color: #ddd;
+    /* Temporary background color for images to show if not loaded */
   }
-  
+
   /* Add hover effect to the gallery images */
   .gallery-image:hover {
-    transform: scale(1.1); /* Zoom effect on hover */
+    transform: scale(1.1);
+    /* Zoom effect on hover */
   }
 
   .box .options {
-    display: flex !important; /* Ensure options are shown on mobile devices */
-    flex-direction: column; /* Stack options vertically */
+    display: flex !important;
+    /* Ensure options are shown on mobile devices */
+    flex-direction: column;
+    /* Stack options vertically */
     gap: 10px;
-    width: 100%; /* Full width */
+    width: 100%;
+    /* Full width */
     justify-content: center;
   }
 
@@ -663,7 +731,8 @@ body::before {
 
   /* Hide hover effects */
   .box:hover .options {
-    display: flex; /* Keep options visible */
+    display: flex;
+    /* Keep options visible */
   }
 
   /* Ensure text in options is styled */
@@ -671,7 +740,7 @@ body::before {
     text-decoration: none;
     color: inherit;
   }
-  
+
   .option a p {
     font-size: 1rem;
     color: #333;
@@ -681,12 +750,15 @@ body::before {
   .option a:hover p {
     color: #111;
   }
+
   .box h2 {
-    display: none !important; /* Force h2 to be hidden */
+    display: none !important;
+    /* Force h2 to be hidden */
   }
 
   /* Prevent hover from showing h2 */
   .box:hover h2 {
-    display: none !important; /* Ensure h2 stays hidden even when hovering */
+    display: none !important;
+    /* Ensure h2 stays hidden even when hovering */
   }
 }
