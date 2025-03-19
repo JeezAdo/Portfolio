@@ -108,6 +108,8 @@ function replaceProfilePicture(thumbnail) {
   profilePicture.src = thumbnail.src; // Replace the main image with the thumbnail's source
 }
 
+
+
 function openModal(img) {
   var modal = document.getElementById('myModal');
   var modalImg = document.getElementById('modalImage');
