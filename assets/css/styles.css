@@ -7,7 +7,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif, sans-serif;
-  background-image: url('assets/pictures/back-patt.jpg');
+  background-image: url('../pictures/back-patt.jpg');
   background-color: #f9f7f3;
   background-size: cover;
   background-position: center;
@@ -63,47 +63,36 @@ body::before {
   transition: color 1s ease;
 }
 
+.nav-btn {
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.nav-btn :hover {
+  background-color: #555;
+}
+
 .contact-btn {
-  padding: 10px 20px;
   background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.contact-btn:hover {
-  background-color: #555;
-}
-
-.back-btn {
-  padding: 10px 20px;
-  background-color: #908585;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.back-btn :hover {
-  background-color: #555;
 }
 
 .about-btn {
-  padding: 10px 20px;
   background-color: #908585;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
 }
 
-.about-btn :hover {
-  background-color: #555;
+.back-btn {
+  background-color: #908585;
 }
+
+.about-btn {
+  background-color: #908585;
+}
+
 
 .button-container {
   display: flex;
@@ -111,17 +100,6 @@ body::before {
   /* Adds space between the buttons */
   justify-content: center;
   /* Centers the buttons horizontally */
-}
-
-.contact-btn,
-.back-btn,
-.about-btn {
-  padding: 15px 25px;
-  font-size: 1rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
 }
 
 .about-me {

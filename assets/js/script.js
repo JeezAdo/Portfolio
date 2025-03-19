@@ -43,7 +43,7 @@ function setTextColorBasedOnBackground(bgColor) {
   // Apply the text color to h1 and p elements
   const heading = document.querySelector('h1');
   const paragraph = document.querySelectorAll('p');
-  
+
 
   heading.style.color = textColor; // Change color of <h1>
   paragraph.forEach(p => p.style.color = textColor); // Change color of all <p> elements
@@ -104,41 +104,41 @@ if (aboutButton) {
 }
 
 function replaceProfilePicture(thumbnail) {
-    const profilePicture = document.getElementById("profilePicture");
-    profilePicture.src = thumbnail.src; // Replace the main image with the thumbnail's source
-  }
+  const profilePicture = document.getElementById("profilePicture");
+  profilePicture.src = thumbnail.src; // Replace the main image with the thumbnail's source
+}
 
 function openModal(img) {
-    var modal = document.getElementById('myModal');
-    var modalImg = document.getElementById('modalImage');
-    modal.style.display = "flex";
-    modalImg.src = img.src;
-  }
-  
-  function closeModal() {
-    var modal = document.getElementById('myModal');
-    modal.style.display = "none";
-  }
+  var modal = document.getElementById('myModal');
+  var modalImg = document.getElementById('modalImage');
+  modal.style.display = "flex";
+  modalImg.src = img.src;
+}
 
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();  // Prevent the form from submitting the traditional way
-  
-    // Get form data
-    var formData = new FormData(this);
-  
-    // Create an XMLHttpRequest to submit the form data asynchronously
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'send_message.php', true);
-  
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        // If successful, display the success message
-        document.querySelector('.form-response').innerHTML = xhr.responseText;
-      } else {
-        // If there's an error, display an error message
-        document.querySelector('.form-response').innerHTML = 'Something went wrong. Please try again later.';
-      }
-    };
-  
-    xhr.send(formData);  // Send the form data
-  });
+function closeModal() {
+  var modal = document.getElementById('myModal');
+  modal.style.display = "none";
+}
+
+document.getElementById('contactForm').addEventListener('submit', function (event) {
+  event.preventDefault();  // Prevent the form from submitting the traditional way
+
+  // Get form data
+  var formData = new FormData(this);
+
+  // Create an XMLHttpRequest to submit the form data asynchronously
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'send_message.php', true);
+
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      // If successful, display the success message
+      document.querySelector('.form-response').innerHTML = xhr.responseText;
+    } else {
+      // If there's an error, display an error message
+      document.querySelector('.form-response').innerHTML = 'Something went wrong. Please try again later.';
+    }
+  };
+
+  xhr.send(formData);  // Send the form data
+});
