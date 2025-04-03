@@ -29,9 +29,9 @@
         <h2 class="project-title">Project Title 1</h2>
         <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non ante a leo venenatis tempor.</p>
         <div class="project-small-images">
-          <img src="./pictures/PICT0757.JPG" alt="Small Image 1" class="small-image">
-          <img src="./pictures/PICT0399.JPG" alt="Small Image 2" class="small-image">
-          <img src="./pictures/PICT0891.JPG" alt="Small Image 3" class="small-image">
+          <img src="./pictures/PICT0757.JPG" alt="Small Image 1" class="small-image" onclick="openModal(this)" >
+          <img src="./pictures/PICT0399.JPG" alt="Small Image 2" class="small-image" onclick="openModal(this)">
+          <img src="./pictures/PICT0891.JPG" alt="Small Image 3" class="small-image" onclick="openModal(this)">
         </div>
       </div>
     </div>
@@ -44,15 +44,17 @@
           <h2 class="project-title">Project Title 2</h2>
           <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non ante a leo venenatis tempor.</p>
           <div class="project-small-images">
-            <img src="./pictures/PICT0757.JPG" alt="Small Image 1" class="small-image">
-            <img src="./pictures/PICT0399.JPG" alt="Small Image 2" class="small-image">
-            <img src="./pictures/PICT0891.JPG" alt="Small Image 3" class="small-image">
+            <img src="./pictures/PICT0757.JPG" alt="Small Image 1" class="small-image" onclick="openModal(this)">
+            <img src="./pictures/PICT0399.JPG" alt="Small Image 2" class="small-image" onclick="openModal(this)">
+            <img src="./pictures/PICT0891.JPG" alt="Small Image 3" class="small-image" onclick="openModal(this)">
           </div>
         </div>
       </div>
     <!-- Add more projects here -->
   </div>
-
+  <div id="myModal" class="modal" onclick="closeModal()">
+    <img id="modalImage" class="modal-content">
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

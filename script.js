@@ -142,3 +142,23 @@ function openModal(img) {
   
     xhr.send(formData);  // Send the form data
   });
+  document.addEventListener("DOMContentLoaded", function () {
+    const isMobile = window.innerWidth <= 768; // Detect mobile mode
+    const optionsContainer = document.getElementById("optionsContainer"); // Make sure this exists in HTML
+  
+    if (isMobile && optionsContainer) {
+      optionsContainer.innerHTML = `
+        <button class="option mobile-option" style="background-image: url('cars.jpg');" data-bg="cars.jpg">Cars</button>
+        <button class="option mobile-option" style="background-image: url('travel.jpg');" data-bg="travel.jpg">Travel</button>
+        <button class="option mobile-option" style="background-image: url('street.jpg');" data-bg="street.jpg">Street</button>
+        <button class="option mobile-option" style="background-image: url('projects.jpg');" data-bg="projects.jpg">Projects</button>
+      `;
+  
+      document.querySelectorAll(".mobile-option").forEach(button => {
+        button.addEventListener("click", function () {
+          const bgImage = this.getAttribute("data-bg");
+          document.body.style.backgroundImage = `url(${bgImage})`;
+        });
+      });
+    }
+  });

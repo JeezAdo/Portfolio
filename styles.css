@@ -1,4 +1,3 @@
-/* General Reset */
 * {
   margin: 0;
   padding: 0;
@@ -7,13 +6,15 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif, sans-serif;
-  background-image: url('./pictures/back-patt.jpg');
+  background-image: url('./pictures/itbck.JPG');
   background-color: #f9f7f3;
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
   transition: background-image 0.5s ease, background-color 0.5s ease;
   color: #333;
-  display: flex;
+  display:flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start; /* Change from 'center' to 'flex-start' */
@@ -123,6 +124,10 @@ body::before {
   justify-content: space-between;
   padding: 20px;
   gap: 20px;
+  background-color: rgba(166, 166, 166, 0.44);
+  border-radius: 16px;
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .about-left {
@@ -130,6 +135,7 @@ body::before {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  background-color: transparent;
 }
 
 .profile-pic {
@@ -140,6 +146,7 @@ body::before {
   border: 3px solid #ccc;
   transition: transform 0.3s ease;
 }
+
 .profile-pic:hover {
   transform: scale(1.05);
 }
@@ -173,18 +180,19 @@ body::before {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  color: white;
 }
 
 .about-right h2 {
   font-size: 2rem;
-  color: #333;
+  color: white;
 }
 
 .about-right p,
 .about-right ul {
   font-size: 1rem;
   line-height: 1.6;
-  color: #555;
+  color: white;
 }
 
 .about-right ul {
@@ -446,8 +454,8 @@ body::before {
 }
 
 .modal img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
 }
 
 .contact-form-container {
@@ -492,14 +500,97 @@ body::before {
 /* General Mobile Layout */
 /* Responsive Design Adjustments */
 /* General Mobile Layout */
+@media (min-width: 768px) {
+  .mobile-grid { display: none; } /* Hide mobile grid */
+}
+
+
 @media (max-width: 768px) {
-  body {
-    padding-top: 20px;
-    justify-content: flex-start;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9; /* Matches the light background */
+
+  .screen-content {
+    display: none !important;
   }
 
+  body {
+    background-image: url(./pictures/cleanpatt.jpg);
+    background-position-x: 90%;
+    background-color: #2682b8!important;
+  }
+  
+  #optionsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .mobile-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+    grid-template-rows: auto auto; /* Two rows */
+    gap: 10px;
+    width: 80%;
+    padding: 10px;
+    margin-top: 50px;
+  }
+  
+  /* Each option (Street, Cars, Travel) */
+  .mobile-grid .option {
+    background-size: cover;
+    background-position: center;
+    height: 100px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: transparent;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-transform: uppercase;
+  }
+
+  .option {
+    flex: 1;
+    text-align: center;
+    background-color: #ddd;
+    /*border: 1px solid #ccc; */
+    opacity: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    position: relative; /* To position child elements inside the box */
+  }
+  
+  .option:hover {
+    background-color: transparent; /* Remove background color change */
+    opacity: 1; /* Ensure opacity is 100% */
+    transform: none; /* Remove scale effect */
+  }
+
+    
+    .option a p {
+      font-size: 1rem;
+      color: white !important;
+    }
+
+  /* Individual item backgrounds */
+  .option.street { background-image: url('./pictures/street.jpg'); }
+  .option.cars { background-image: url('./pictures/CarsGo/cars-14.jpg'); }
+  .option.travel { background-image: url('./pictures/travel3.jpg'); }
+  .option.projects { 
+    background-image: url('./pictures/project.JPG'); 
+    grid-column: span 3; /* Projects takes full width */
+  }
+
+
+  /* Hide dynamic text and other elements only needed for desktop */
+  .dynamic-text {
+    display: none;
+  }
+  
   .desktop-text {
     display: none;
   }
@@ -548,8 +639,18 @@ body::before {
     transition: background-color 0.3s ease;
   }
   
+  .about-btn {
+    padding: 10px 20px;
+    background-color: #908585;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
   .contact-btn:hover {
     background-color: #555; /* Darker on hover */
+    transform: none;
   }
   
   /* Home Button */
@@ -633,10 +734,7 @@ body::before {
     background-color: #ddd; /* Temporary background color for images to show if not loaded */
   }
   
-  /* Add hover effect to the gallery images */
-  .gallery-image:hover {
-    transform: scale(1.1); /* Zoom effect on hover */
-  }
+
 
   .box .options {
     display: flex !important; /* Ensure options are shown on mobile devices */
@@ -646,41 +744,31 @@ body::before {
     justify-content: center;
   }
 
-  .option {
-    background-color: #ddd;
-    text-align: center;
-    padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+  /*.option {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100px; /* Adjust height as needed */
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*color: white; /* Ensures text is readable */
+    /*font-weight: bold;*/
+    /*border-radius: 8px;*/
+    /*text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* Improves text contrast */
+    /*transition: transform 0.2s ease; /* Optional slight scaling effect */
+/*} */
 
-  .option:hover {
-    background-color: transparent;
-    opacity: 100%;
-    transform: scale(1.15);
-  }
+/* Optional: slight scaling effect on click */
+.option:active {
+    transform: scale(0.98);
+}
 
   /* Hide hover effects */
   .box:hover .options {
     display: flex; /* Keep options visible */
   }
 
-  /* Ensure text in options is styled */
-  .option a {
-    text-decoration: none;
-    color: inherit;
-  }
-  
-  .option a p {
-    font-size: 1rem;
-    color: #333;
-    transition: color 0.3s ease;
-  }
-
-  .option a:hover p {
-    color: #111;
-  }
   .box h2 {
     display: none !important; /* Force h2 to be hidden */
   }
@@ -689,4 +777,41 @@ body::before {
   .box:hover h2 {
     display: none !important; /* Ensure h2 stays hidden even when hovering */
   }
+
+  .about-me {
+    display: block; /* Stack elements vertically */
+    width: 90%;
+  }
+
+  .about-left {
+    text-align: center;
+    margin-bottom: 15px; 
+    margin-top: 10px;
+  }
+
+  .profile-pic {
+    width: 300px; 
+    height: 300px;/* Adjust profile picture size on mobile */
+  }
+
+  .thumbnail-container {
+    display: block; /* Stack thumbnails vertically */
+    margin-top: 10px;
+  }
+
+  .thumbnail {
+    width: 50px; /* Smaller thumbnail size on mobile */
+    height: 60px;
+    width: 60px;
+    margin: 0 auto 10px; /* Center thumbnails and add space */
+  }
+
+  .about-right h2 {
+    font-size: 1.5rem; /* Adjust font size */
+  }
+
+  .about-right p {
+    font-size: 1rem; /* Adjust paragraph font size */
+  }
+  
 }
