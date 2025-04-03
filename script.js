@@ -85,7 +85,7 @@ handleOptionHover(projectsOptions, 'Explore my project portfolio.');
 const backButton = document.getElementById('backButton');
 if (backButton) {
   backButton.addEventListener('click', () => {
-    window.location.href = 'portfolio.html';
+    window.location.href = 'index.html';
   });
 }
 
