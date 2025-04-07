@@ -6,7 +6,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif, sans-serif;
-  background-image: url('./pictures/itbck.JPG');
+  background-image: url('./pictures/itbck.JPG') !important;
   background-color: #f9f7f3;
   background-size: cover;
   background-position: center;
@@ -299,7 +299,6 @@ body::before {
   background-color: transparent;
   opacity: 100%;
   transform: scale(1.15);
-  background-image: none !important;
 }
 
 /* Style the anchor tag to fill the entire .option box */
