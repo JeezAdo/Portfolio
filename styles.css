@@ -283,9 +283,9 @@ body::before {
 .option {
   flex: 1;
   text-align: center;
-  background-color: #ddd;
+  background-color: #dddddd;
   /*border: 1px solid #ccc; */
-  opacity: 50%;
+  opacity: 75%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -299,6 +299,7 @@ body::before {
   background-color: transparent;
   opacity: 100%;
   transform: scale(1.15);
+  background-image: none !important;
 }
 
 /* Style the anchor tag to fill the entire .option box */
@@ -321,6 +322,7 @@ body::before {
 
 .option a:hover p {
   color: #111; /* Slightly darker text on hover */
+  font-size: large;
 }
 
 .button-container {
@@ -359,77 +361,83 @@ body::before {
 }
 
 /* Projects Section */
-.projects-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.project-container {
+  background-color: rgba(204, 204, 204, 0.75);
   padding: 20px;
-}
-
-.project {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 70%;
-  margin: 20px 0;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
-.project-left {
-  flex: 1;
-  position: relative;
-}
-
-.project-image {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-.project-right {
-  flex: 2;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 300px; /* Adjust height as necessary */
-  position: relative;
+  margin-bottom: 30px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 16px;
+  max-width: 70%;
+  margin-top: 50px;
 }
 
 .project-title {
-  font-size: 24px;
-  margin: 0;
-  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
 .project-description {
-  font-size: 16px;
-  margin: 10px 0;
-  color: #555;
-}
-
-.project-small-images {
-  display: flex;
-  gap: 10px;
-  margin-top: auto;
-}
-
-.small-image {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  line-height: 1.5;
   cursor: pointer;
-  
+  transition: max-height 0.3s ease;
+  overflow: hidden;
 }
 
-.project-small-images img:hover {
-  transform: scale(1.1);
-  transition: transform 0.3s ease;
+.project-description .more-text {
+  display: none;
 }
+
+.project-description.expanded .more-text {
+  display: inline;
+}
+
+.project-media {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
+.media-item {
+  width: 100px;
+  border-radius: 6px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.video-wrapper {
+  width: calc(33.33% - 10px);
+  aspect-ratio: 16/9;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.read-more-btn {
+  background: none;
+  border: none;
+  color: rgb(135, 15, 248);
+  cursor: pointer;
+  font-size: 0.95rem;
+  margin-top: 5px;
+  padding: 0;
+}
+
+.read-more-btn:hover {
+  text-decoration: underline;
+}
+
 
 /* Modal Styles */
 .modal {
@@ -512,9 +520,9 @@ body::before {
   }
 
   body {
-    background-image: url(./pictures/cleanpatt.jpg);
+    background-image: url(./pictures/cleanpatt.jpg)!important;
     background-position-x: 90%;
-    background-color: #2682b8!important;
+    background-color: #2682b8;
   }
   
   #optionsContainer {
@@ -840,5 +848,13 @@ body::before {
   .about-right p {
     font-size: 1rem; /* Adjust paragraph font size */
   }
+
+  .media-item,
+  .video-wrapper {
+    width: calc(50% - 5px); /* two items per row */
+  }
   
+
+
 }
+

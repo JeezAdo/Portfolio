@@ -18,43 +18,87 @@
     <button id="contactButton" class="contact-btn">Contact Me</button>
   </div>
 
-  <!-- Projects Section -->
-  <div class="projects-container">
-   
-    <div class="project">
-      <div class="project-left">
-        <img src="./pictures/IMG_7206.jpg" alt="Project Image" class="project-image">
-      </div>
-      <div class="project-right">
-        <h2 class="project-title">Project Title 1</h2>
-        <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non ante a leo venenatis tempor.</p>
-        <div class="project-small-images">
-          <img src="./pictures/PICT0757.JPG" alt="Small Image 1" class="small-image" onclick="openModal(this)" >
-          <img src="./pictures/PICT0399.JPG" alt="Small Image 2" class="small-image" onclick="openModal(this)">
-          <img src="./pictures/PICT0891.JPG" alt="Small Image 3" class="small-image" onclick="openModal(this)">
-        </div>
-      </div>
+  <div class="project-container">
+    <h2 class="project-title">Project Title</h2>
+    <p class="project-description" onclick="toggleDescription(this)">
+      Tap to expand description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. aaaaaaaaaasdjdjsjdshfjdhfkdhfjsdbjdbsjkfdskfbdfbdsbfdbfsdbvdsbvdbdbfsbfdbsfbdfhjbdsvdshbvdsbvdsbhdsbfhsdbfhdbfhdbsfhbdshfbdhfbdhbfhbfhdsbfhdbfhbdfhbdfhbdhfbdfbsd fhdbfbfjefj efheof ehf eofhe fuhe fuherufgh rgehfg eohf ouhgowehergorg reohg rohg eorgh eroghreoghrieog 
+      <span class="more-text">Here is the full description, visible only when expanded on mobile.</span>
+    </p>
+    <div class="project-media">
+      <!-- Use either images OR videos -->
+      <!-- Images -->
+      <img src="./pictures/PICT0757.JPG" alt="Small 1" class="media-item">
+      <img src="./pictures/PICT0399.JPG" alt="Small 2" class="media-item">
+      <img src="./pictures/PICT0891.JPG" alt="Small 3" class="media-item">
+  
+      <!-- OR YouTube videos (embed as many as needed) -->
+      <!-- <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/4EkcOGpFa68" allowfullscreen></iframe>
+      </div> -->
     </div>
-
-    <div class="project">
-        <div class="project-left">
-          <img src="./pictures/IMG_7206.jpg" alt="Project Image" class="project-image">
-        </div>
-        <div class="project-right">
-          <h2 class="project-title">Project Title 2</h2>
-          <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non ante a leo venenatis tempor.</p>
-          <div class="project-small-images">
-            <img src="./pictures/PICT0757.JPG" alt="Small Image 1" class="small-image" onclick="openModal(this)">
-            <img src="./pictures/PICT0399.JPG" alt="Small Image 2" class="small-image" onclick="openModal(this)">
-            <img src="./pictures/PICT0891.JPG" alt="Small Image 3" class="small-image" onclick="openModal(this)">
-          </div>
-        </div>
-      </div>
-    <!-- Add more projects here -->
   </div>
+
+  <div class="project-container">
+    <h2 class="project-title">Project Title</h2>
+    <p class="project-description" onclick="toggleDescription(this)">
+      Tap to expand description. Lorem ipsum dolor sit amet, consectetur adipiscing elit. aaaaaaaaa asdjdjsjdsh fjdh fkdhfj sdbjdbs jkf dskfbd f bdsb df df df df df df df df dfd fd fdf d fd f df df d fd d ffd bfsd bvdsbvd bdbfsbfd bs fbdfh jb dsvdshb vdsbvdsbhds bfhsd bfhdbfhd bsfhbd df df df d fd fd f df dd f df df df dfd f dfd f df dfd f
+    </p>
+    <div class="project-media">
+  
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/4EkcOGpFa68" allowfullscreen></iframe>
+      </div> 
+    </div>
+  </div>
+ 
+    
+
+ 
   <div id="myModal" class="modal" onclick="closeModal()">
     <img id="modalImage" class="modal-content">
   </div>
   <script src="script.js"></script>
+  <script>
+    function toggleDescription(desc) {
+      if (window.innerWidth <= 768) {
+        desc.classList.toggle('expanded');
+      }
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+    const descriptions = document.querySelectorAll('.project-description');
+
+    descriptions.forEach(desc => {
+      const words = desc.innerText.trim().split(/\s+/);
+      if (window.innerWidth <= 768 && words.length > 50) {
+        const fullText = desc.innerHTML;
+        const shortText = words.slice(0, 50).join(' ') + '...';
+
+        // Create wrapper
+        desc.innerHTML = `
+          <span class="desc-short">${shortText}</span>
+          <span class="desc-full" style="display:none;">${fullText}</span>
+          <button class="read-more-btn">Read more</button>
+        `;
+
+        const btn = desc.querySelector('.read-more-btn');
+        btn.addEventListener('click', () => {
+          const short = desc.querySelector('.desc-short');
+          const full = desc.querySelector('.desc-full');
+          const isExpanded = full.style.display === 'inline';
+
+          if (isExpanded) {
+            full.style.display = 'none';
+            short.style.display = 'inline';
+            btn.innerText = 'Read more';
+          } else {
+            full.style.display = 'inline';
+            short.style.display = 'none';
+            btn.innerText = 'Read less';
+          }
+        });
+      }
+    });
+  });
+  </script>
 </body>
 </html>
